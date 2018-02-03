@@ -3,6 +3,7 @@ package com.hencoder.hencoderpracticelayout1.common;
 import android.content.Context;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -45,6 +46,8 @@ public class Common01AdjustablePanel extends RelativeLayout {
         SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int percent, boolean b) {
+                Log.i("widthBar", "percent= " + percent + " progress= " + widthBar.getProgress());
+                Log.i("heightBar", "percent= " + percent + " progress= " + heightBar.getProgress());
                 LayoutParams layoutParams = (LayoutParams) parentLayout.getLayoutParams();
                 layoutParams.width = (int) (minWidth + (Common01AdjustablePanel.this.getWidth()
                         - minWidth) * widthBar.getProgress() / 100);
